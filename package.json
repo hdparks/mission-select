@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@tresjs/cientos": "^3.8.0",
+    "@tresjs/core": "^3.8.0",
+    "@tresjs/leches": "^0.14.0",
     "@tresjs/nuxt": "^2.1.1",
     "@tresjs/post-processing": "^0.7.1",
     "nuxt": "^3.11.1",

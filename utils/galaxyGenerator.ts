@@ -3,21 +3,27 @@ export type Point = {
   y: number;
   z: number;
 }
+
 export type Planet = {
   position: Point
 }
+
 export type Hyperlane = {
   p1: Planet;
   p2: Planet;
 }
-
 
 export type GalaxyConfig = {
   numPlanets: number;
   spread: number;
 }
 
-export function randomGalaxy(ctx: GalaxyConfig = { numPlanets: 50, spread:5 }): {planets: Planet[], hyperlanes: Hyperlane[]} {  
+export type Galaxy = {
+  planets: Planet[];
+  hyperlanes: Hyperlane[];
+}
+
+export function randomGalaxy(ctx: GalaxyConfig = { numPlanets: 50, spread:5 }): Galaxy {  
   const planets = Array(ctx.numPlanets).fill(null).map(() => randomPlanet(ctx.spread))
   const hyperlanes = randomHyperlanes(planets) 
   return {
