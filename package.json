@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@eventstore/db-client": "^6.1.0",
     "@tresjs/cientos": "^3.8.0",
     "@tresjs/core": "^3.8.0",
     "@tresjs/leches": "^0.14.0",

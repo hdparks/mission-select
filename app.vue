@@ -4,8 +4,7 @@
     <button @click="randomizeGalaxy">Randomize</button>
     <button @click="loadGalaxy(galaxyName)" v-for="galaxyName in galaxyNames">{{galaxyName}}</button>
     <span ref="debugSpan"></span>
-    map: {{mapControlsEnabled}}
-    orbit: {{orbitControlsEnabled}}
+    <button @click="requestCreatureCv">cv: {{creatureCv}}</button>
     <div id="canvas-container">
       <TresCanvas >
         <Stats></Stats>
@@ -92,6 +91,11 @@ onLoop(({delta, elapsed}) => {
 })
 
 
+const creatureCv = ref<string>(".")
+async function requestCreatureCv() {
+  creatureCv.value = 'fetching...'
+  creatureCv.value = await $fetch('/api/creature/1/cv')
+}
 
 
 </script>
