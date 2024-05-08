@@ -1,0 +1,10 @@
+{
+  "name":"xzarShadar.json",
+  "glb":"/planets/glb/xzarShadar.glb",
+  "position": {
+    "x":0,
+    "y":5,
+    "z":0
+  },
+  "scale": 1
+}

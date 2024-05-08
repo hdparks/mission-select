@@ -1,0 +1,10 @@
+{
+	"name":"myr.json",
+	"glb":"/planets/glb/myr.glb",
+  "position": {
+    "x":0.33 ,
+    "y":0.03,
+    "z":-2.75
+  },
+  "scale": 1
+}

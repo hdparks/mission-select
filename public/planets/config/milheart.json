@@ -1,0 +1,10 @@
+{
+  "name":"milheart.json",
+  "glb":"/planets/glb/milheart.glb",
+  "position": {
+    "x":4.94 ,
+    "y":0.43,
+    "z":-1.23
+  },
+  "scale": 1
+}

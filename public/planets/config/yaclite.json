@@ -1,0 +1,10 @@
+{
+	"name":"yaclite.json",
+	"glb":"/planets/glb/yaclite.glb",
+  "position": {
+    "x":3.55 ,
+    "y":0.91,
+    "z":-2.16
+  },
+  "scale": 1
+}

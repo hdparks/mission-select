@@ -1,0 +1,11 @@
+
+{
+  "name":"merleII.json",
+  "glb":"/planets/glb/merleII.glb",
+  "position": {
+    "x":0,
+    "y":3,
+    "z":0
+  },
+  "scale": 1
+}

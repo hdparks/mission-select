@@ -1,0 +1,10 @@
+{
+	"name":"ugnade.json",
+	"glb":"/planets/glb/ugnade.glb",
+  "position": {
+    "x":-1.29 ,
+    "y":0.95,
+    "z":-3.75
+  },
+  "scale": 1
+}

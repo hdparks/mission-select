@@ -1,11 +1,12 @@
-export type Point = {
-  x: number;
-  y: number;
-  z: number;
-}
-
+import { isVector2 } from '@tresjs/leches/dist/utils/is.js';
+import {Vector3} from 'three'
+import { version } from 'vue';
 export type Planet = {
-  position: Point
+  position: Vector3,
+  radius: number,
+  color: string,
+  initialRotation: Vector3,
+  rotationalSpeed: Vector3,
 }
 
 export type Hyperlane = {
@@ -34,11 +35,23 @@ export function randomGalaxy(ctx: GalaxyConfig = { numPlanets: 50, spread:5 }): 
 
 function randomPlanet(spread: number): Planet {
   return {
-    position: {
-      x: (Math.random() - .5) * spread,
-      y: (Math.random() - .5) * spread,
-      z: (Math.random() - .5) * spread / 10,
-    }
+    position: new Vector3(
+      (Math.random() - .5) * spread,
+      (Math.random() - .5) * spread / 10,
+      (Math.random() - .5) * spread,
+    ),
+    initialRotation: new Vector3(
+      Math.random() * .2 - .1,
+      Math.random() * .2 - .1,
+      Math.random() * .2 - .1,
+    ),
+    rotationalSpeed: new Vector3(
+      0,
+      Math.random() * .1,
+      0
+    ),
+    color: '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6),
+    radius: Math.random() * .1 + .05
   }
 }
 
@@ -49,8 +62,8 @@ type DijkstraEdge = {
   to: number;
 }
 
-function cityBlockDist(a:Point, b:Point): number {
-  return Math.abs(a.x - b.x) + Math.abs(a.y - b.y)
+function cityBlockDist(a:Vector3, b:Vector3): number {
+  return Math.abs(a.x - b.x) + Math.abs(a.z - b.z)
 }
 
 function randomHyperlanes(planets: Planet[]): Hyperlane[] { 
