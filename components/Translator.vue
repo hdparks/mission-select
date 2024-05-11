@@ -5,7 +5,7 @@
 import gsap from "gsap"
 
 const tl = gsap.timeline()
-const props = withDefaults(defineProps<{value:string, delay?:number, duration?:number, delimiter?:string|RegExp, deviation?:number, flicker?:number, debug?:boolean}>(), {delimiter:"", delay:1, duration:1, deviation:1, flicker:1000, debug:false})
+const props = withDefaults(defineProps<{value:string, delay?:number, duration?:number, delimiter?:string|RegExp, deviation?:number, flicker?:number, debug?:boolean}>(), {delimiter:"", delay:1, duration:1, deviation:1, flicker:60, debug:false})
 const splitValue = computed(() => props.value.split(props.delimiter))
 const charRefs = ref<HTMLDivElement[]>() 
 const instanceFlickerDelay = Math.random() * props.flicker

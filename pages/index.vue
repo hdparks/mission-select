@@ -1,19 +1,15 @@
 <template>
   <div class="bg-black overflow-hidden flex flex-col md:flex-row h-dvh w-dvw" style="height:100vh;" >
-    <div class="flex-1" style="flex-grow: 2;">
+    <div class="flex-1" style="flex-grow: 2;" >
       <TresCanvas >
-        <Stats></Stats>
         <TresPerspectiveCamera ref="cameraRef" :position="cameraPosition" v-always-look-at="cameraTarget"/>
         <MapControls v-if="!looking"/>
         <TresAmbientLight :intensity=".1" />
         <TresDirectionalLight cast-shadow :position="[-3,3,0]" :look-at="[0,0,0]" :intensity="10" />
         <Stars :size=".3"/>
         <Suspense>
-          <GLTFModel v-for="planet, i in planets" ref="planetRefs" :path="planet.glb" :position="[(i-1) * 15, 0, 0]" :scale="planet.scale" draco />
+          <GLTFModel v-for="planet, i in planets" ref="planetRefs" :path="planet.glb" :position="[i * 15, 0, 0]" :scale="planet.scale" draco />
         </Suspense>
-        <Plane>
-          <MeshBasicMaterial></MeshBasicMaterial>
-        </Plane>
       </TresCanvas>
     </div>
     <div class="flex-1 md:max-w-[400px] m-4 overflow-auto bg-gradient-to-b from-slate-800 to-slate-900 text-slate-500 p-2 outline outline-[1px] outline-[#af724d] outline-offset-4 rounded-xl md:bg-gradient-to-r" style="overflow-wrap: anywhere;" >
@@ -63,14 +59,14 @@
           <h1 class="text-center"><TextPop><Translator value="Operation: Heartbreak Actual"></Translator></TextPop></h1>
           <h2 ><Translator value='Evacuate Rebel Cell "Hydain Wayward" from the slot canyons of Ubados'></Translator></h2>
         </template>
-        <p><Translator value="The rebel base on "></Translator><TextPop><Translator value="Ubados"></Translator></TextPop><Translator value="is under attack."></Translator></p>
+        <p><Translator value="The rebel base on "></Translator><TextPop><Translator value="Ubados"></Translator></TextPop><Translator value=" is under attack."></Translator></p>
         <p><Translator value="Scans indicate the presence of several Imperial Class Star Destroyers in high orbit. "></Translator></p>
         <p><TextPop><Translator value="Admiral Daaro"></Translator></TextPop><Translator value=" has begun a viscious campaign through the narrow slot canyon bases of the Hydaian Wayward. They have sent out a distress call to any available rebel forces."></Translator></p>
         <br>
         <p><span class="font-bold"><Translator value="(Note from Fleet Captain Ackbar):"></Translator></span></p>
         <br>
         <div class="mx-5">
-          <p><Translator value="The situation is dire. They need a small team to punch a hole through the Imperial line long enough to evacuate the last of their personnel. They won't last much longer under Imperial siege. It's now or never."></Translator></p>
+          <p><Translator value="The situation is dire. They need a small team to punch a hole through the Imperial advance forces long enough to evacuate the last of their personnel. They won't last much longer under Imperial siege. It's now or never."></Translator></p>
         </div>
       </QuestDescription>
     </div>
@@ -88,7 +84,7 @@ const allPlanets = await $fetch('/api/planets')
 const planets = [allPlanets[1], allPlanets[3], allPlanets[9]]
 
 const planetRefs = ref<GLTFModel[]>();
-const selectedPlanet = ref<number>(1)
+const selectedPlanet = ref<number>(0)
 const selectedPlanetName = computed(() => ['Myr','Milheart IV','Ubados'][selectedPlanet.value])
 const cameraRef = ref<PerspectiveCamera>()
 const cameraTarget = ref<Vector3>(new Vector3(0,0,0))
