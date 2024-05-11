@@ -80,12 +80,14 @@ import QuestDescription from '~/components/QuestDescription.vue';
 import FrontArrow from '~/components/FrontArrow.vue';
 import BackArrow from '~/components/BackArrow.vue';
 
-const allPlanets = await $fetch('/api/planets')
-const planets = [allPlanets[1], allPlanets[3], allPlanets[9]]
+import myr from '~/public/planets/config/myr.json';
+import milheart from '~/public/planets/config/milheart.json'
+import ubados from '~/public/planets/config/ubados.json'
+const planets = [myr, milheart, ubados]
 
 const planetRefs = ref<GLTFModel[]>();
 const selectedPlanet = ref<number>(0)
-const selectedPlanetName = computed(() => ['Myr','Milheart IV','Ubados'][selectedPlanet.value])
+const selectedPlanetName = computed(() => planets[selectedPlanet.value].name)
 const cameraRef = ref<PerspectiveCamera>()
 const cameraTarget = ref<Vector3>(new Vector3(0,0,0))
 const cameraPosition = computed<Vector3>(() => {
