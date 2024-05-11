@@ -1,6 +1,6 @@
 {
 	"name":"myr",
-	"glb":"@/planets/glb/myr.glb",
+	"glb":"planets/glb/myr.glb",
   "position": {
     "x":0.33 ,
     "y":0.03,

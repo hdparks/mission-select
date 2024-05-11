@@ -1,6 +1,6 @@
 {
 	"name":"ubados",
-	"glb":"@/planets/glb/ubados.glb",
+	"glb":"planets/glb/ubados.glb",
   "position": {
    "x":-1.29 ,
    "y":0.49,

@@ -1,7 +1,7 @@
 
 {
   "name":"merleII",
-  "glb":"@/planets/glb/merleII.glb",
+  "glb":"planets/glb/merleII.glb",
   "position": {
     "x":0,
     "y":3,

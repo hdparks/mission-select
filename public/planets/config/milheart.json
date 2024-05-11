@@ -1,6 +1,6 @@
 {
   "name":"milheart IV",
-  "glb":"@/planets/glb/milheart.glb",
+  "glb":"planets/glb/milheart.glb",
   "position": {
     "x":4.94 ,
     "y":0.43,
