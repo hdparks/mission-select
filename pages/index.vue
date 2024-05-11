@@ -18,9 +18,9 @@
 <script setup lang="ts">
 import { PerspectiveCamera, Vector3 } from 'three';
 import gsap from "gsap" 
-import myr from '~/public/planets/config/myr.json';
-import milheart from '~/public/planets/config/milheart.json'
-import ubados from '~/public/planets/config/ubados.json'
+import myr from '@/public/planets/config/myr.json';
+import milheart from '@/public/planets/config/milheart.json'
+import ubados from '@/public/planets/config/ubados.json'
 import { TresCanvas } from '@tresjs/core';
 import { GLTFModel, MapControls, Stars } from '@tresjs/cientos';
 const planets = [myr, milheart, ubados]
