@@ -1,5 +1,6 @@
 <template>
   <div class="bg-black overflow-hidden flex flex-col md:flex-row h-dvh w-dvw" style="height:100vh;" >
+    <span>Test</span>
     <div class="flex-1" style="flex-grow: 2;" >
       <TresCanvas >
         <TresPerspectiveCamera />
@@ -20,6 +21,8 @@ import gsap from "gsap"
 import myr from '~/public/planets/config/myr.json';
 import milheart from '~/public/planets/config/milheart.json'
 import ubados from '~/public/planets/config/ubados.json'
+import { TresCanvas } from '@tresjs/core';
+import { GLTFModel, MapControls, Stars } from '@tresjs/cientos';
 const planets = [myr, milheart, ubados]
 const planetRefs = ref<GLTFModel[]>();
 function isItGsap(){
