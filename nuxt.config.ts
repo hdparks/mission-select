@@ -11,9 +11,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     }
   },
-  build:{
-    transpile: ["gsap"],
-  },
   ssr: true,
   nitro: {
     prerender: {
