@@ -13,6 +13,11 @@ export default defineNuxtConfig({
   },
   build:{
     transpile: ["gsap"],
-    
+  },
+  nitro: {
+    prerender: {
+      failOnError: false,
+    }
   }
+
 })
