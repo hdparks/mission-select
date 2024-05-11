@@ -2,6 +2,9 @@ import { defineNuxtConfig } from "nuxt/config";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    baseURL: "tilbuinn",
+  },
   devtools: { enabled: true },
   modules: ["@tresjs/nuxt",'@nuxtjs/tailwindcss'],
   css: ["~/assets/css/main.css"],
