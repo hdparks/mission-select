@@ -14,6 +14,5 @@ export default defineNuxtConfig({
   build:{
     transpile: ["gsap"],
     
-  },
-  ssr:true
+  }
 })
