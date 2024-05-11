@@ -1,6 +1,6 @@
 {
   "name":"hoxxesIV",
-  "glb":"/planets/glb/hoxxesIV.glb",
+  "glb":"@/planets/glb/hoxxesIV.glb",
   "position": {
     "x":-1.24 ,
     "y":0.07,

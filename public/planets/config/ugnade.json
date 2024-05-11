@@ -1,6 +1,6 @@
 {
 	"name":"ugnade",
-	"glb":"/planets/glb/ugnade.glb",
+	"glb":"@/planets/glb/ugnade.glb",
   "position": {
     "x":-1.29 ,
     "y":0.95,

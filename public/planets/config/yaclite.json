@@ -1,6 +1,6 @@
 {
 	"name":"yaclite",
-	"glb":"/planets/glb/yaclite.glb",
+	"glb":"@/planets/glb/yaclite.glb",
   "position": {
     "x":3.55 ,
     "y":0.91,
