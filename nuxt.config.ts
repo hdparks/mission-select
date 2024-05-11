@@ -10,5 +10,8 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     }
+  },
+  build:{
+    transpile: ["gsap"]
   }
 })
