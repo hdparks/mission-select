@@ -14,8 +14,10 @@ export default defineNuxtConfig({
   build:{
     transpile: ["gsap"],
   },
+  ssr: true,
   nitro: {
     prerender: {
+      crawlLinks: true,
       failOnError: false,
     }
   }
