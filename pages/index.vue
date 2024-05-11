@@ -16,10 +16,13 @@
 </template>
 <script setup lang="ts">
 import { PerspectiveCamera, Vector3 } from 'three';
-
+import gsap from "gsap" 
 import myr from '~/public/planets/config/myr.json';
 import milheart from '~/public/planets/config/milheart.json'
 import ubados from '~/public/planets/config/ubados.json'
 const planets = [myr, milheart, ubados]
 const planetRefs = ref<GLTFModel[]>();
+function isItGsap(){
+  gsap.to(".success", {fontSize:"100px"})
+}
 </script>
