@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      'aurebesh': ['Aurebesh']
+      'aurebesh': ['Aurebesh'],
+      'aurebeshCondensed': ['AurebeshCondensed']
     }
   },
   plugins: [],
