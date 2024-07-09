@@ -16,9 +16,6 @@ onUnmounted(()=>tl.revert())
 
 async function start(){
   if (charRefs.value == null) {return}
-  if (props.debug){
-    console.log("charRefs", charRefs.value)
-  }
   tl.clear();
   tl.restart();
 

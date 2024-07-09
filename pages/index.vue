@@ -12,7 +12,7 @@
         </Suspense>
       </TresCanvas>
     </div>
-    <div class="flex-1 md:max-w-[400px] m-4 overflow-auto bg-gradient-to-b from-slate-800 to-slate-900 text-slate-500 p-2 outline outline-[1px] outline-[#af724d] outline-offset-4 rounded-xl md:bg-gradient-to-r" style="overflow-wrap: anywhere;" >
+    <div ref="drawer" style="transform: translateY('100%'); overflow-wrap: anywhere; " class="flex-1 md:max-w-[400px] m-4 overflow-auto bg-gradient-to-b from-slate-800 to-slate-900 text-slate-500 p-2 outline outline-[1px] outline-[#af724d] outline-offset-4 rounded-xl md:bg-gradient-to-r" >
       <div class="flex flex-row justify-between mb-4">
         <BackArrow :class="{'text-slate-800':selectedPlanet == 0, 'cursor-auto':selectedPlanet == 0}" @click="look(Math.max(0, selectedPlanet - 1))"/>
         <p class="m-auto"><TextPop><Translator :value="selectedPlanetName" :debug="true"></Translator></TextPop></p> 
@@ -82,7 +82,7 @@ import { TresCanvas } from '@tresjs/core';
 import { GLTFModel, MapControls, Stars } from '@tresjs/cientos';
 const planets = [myr, milheart, ubados]
 
-const planetRefs = ref<GLTFModel[]>();
+const planetRefs = ref<typeof GLTFModel[]>();
 const selectedPlanet = ref<number>(0)
 const selectedPlanetName = computed(() => planets[selectedPlanet.value].name)
 const cameraRef = ref<PerspectiveCamera>()
@@ -111,8 +111,15 @@ function slowRotate(){
   })
 }
 
+var tl = gsap.timeline();
 watch(planetRefs,() => {
   slowRotate()
+  tl.play(0)
 })
 
+const drawer = ref<HTMLDivElement>()
+onMounted(() => {
+  tl.fromTo(drawer.value!, {y:'10%', opacity:0}, {y:'0%', opacity:1, duration: 1, ease:'power4.out'}) 
+  tl.pause();
+}) 
 </script>
