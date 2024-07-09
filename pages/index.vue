@@ -8,7 +8,7 @@
         <TresDirectionalLight cast-shadow :position="[-3,3,0]" :look-at="[0,0,0]" :intensity="10" />
         <Stars :size=".3"/>
         <Suspense>
-          <GLTFModel v-for="planet, i in planets" ref="planetRefs" :path="planet.glb" :position="[i * 15, 0, 0]" :scale="planet.scale" draco />
+          <GLTFModel v-for="planet, i in planets" ref="planetRefs" :path="planet.glb" :position="[(i+1) * 15, 0, 0]" :scale="planet.scale" draco />
         </Suspense>
       </TresCanvas>
     </div>
@@ -86,9 +86,9 @@ const planetRefs = ref<typeof GLTFModel[]>();
 const selectedPlanet = ref<number>(0)
 const selectedPlanetName = computed(() => planets[selectedPlanet.value].name)
 const cameraRef = ref<PerspectiveCamera>()
-const cameraTarget = ref<Vector3>(new Vector3(0,0,0))
+const cameraTarget = ref<Vector3>(new Vector3(0,0,0));
 const cameraPosition = computed<Vector3>(() => {
-  const pos = new Vector3().copy(cameraTarget.value);
+  const pos = new Vector3(0,0,0).copy(cameraTarget.value);
   pos.add(new Vector3(4,4,4));
   return pos
 })
@@ -114,12 +114,13 @@ function slowRotate(){
 var tl = gsap.timeline();
 watch(planetRefs,() => {
   slowRotate()
+  look(0)
   tl.play(0)
 })
 
 const drawer = ref<HTMLDivElement>()
 onMounted(() => {
-  tl.fromTo(drawer.value!, {y:'10%', opacity:0}, {y:'0%', opacity:1, duration: 1, ease:'power4.out'}) 
+  tl.fromTo(drawer.value!, {y:'20%', opacity:0}, {y:'0%', opacity:1, duration: 1, ease:'power4.out'},2) 
   tl.pause();
 }) 
 </script>
